@@ -29,7 +29,10 @@ class Category :
 
   
   def get_balance (self) :
-    return 'Not yet created'
+    balance = 0
+    for element in self.ledger :
+      balance = balance + element['amount']
+    return balance
   
   def transfer (self) :
     return 'Not yet created'
@@ -44,6 +47,7 @@ income = Category('Money')
 print(income.deposit(1000,'Initial deposit'))
 groceries = Category ('Food')
 print (groceries.withdraw(23.24))
+print(groceries.get_balance())
 
 
 
