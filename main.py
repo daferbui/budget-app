@@ -1,14 +1,14 @@
 class Category :
   ledger = list()
   def __init__ (self, category) :
-    #repasar esto para que lo poniamos si abajo no hago referencia
     self.category = category
-    #self.ledger = list ()
+    #self.ledger = []
   
   def deposit (self, amount, description = '') :
     a = {"amount" : amount, "description" : description}
     self.ledger.append (a)
     return self.ledger
+    
 
   def withdraw (self, amount, description = '') :
     #determinamos si hay fondos utilizando la funcion creada
@@ -28,11 +28,10 @@ class Category :
     return balance
   
   def transfer (self,amount,category) :
-    #calculamos si tenemos fondos suficientes:
-    fonds = 0
-    for value in self.ledger :
-      fonds = fonds + value['amount']
-    if fonds > 0 :
+    #Entender esta función ya que dependerá del tipo de category del 
+    #objeto, es decir no es solo introducirlo en la lista, sinó además
+    #primero averiguar a que lista de que category hay que añadirlo?
+    if self.check_funds(amount) == True :
       a = {"amount" : -amount, "Transfer to" : category}
       b = {"amount" : amount, "Transfer from" : category}
       self.ledger(a)
@@ -57,10 +56,11 @@ class Category :
 def create_spend_chart(categories):
   return 'Not yet created'
 
-income = Category('Money')
-print(income.deposit(1000,'Initial deposit'))
-groceries = Category ('Food')
-print (groceries.withdraw(23.24,'Chocolate'))
+chocolate = Category ('food')
+peras = Category ('food')
+print(peras.deposit(34.34,'Peras'))
+print(chocolate.deposit(32,'Valor'))
+
 
 
 
