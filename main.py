@@ -11,12 +11,10 @@ class Category :
     return self.ledger
 
   def withdraw (self,amount) :
-    #determinamos si hay fondos y introducimos en la lista
-    #la retirada de la cantidad que entra en el argumento
-    fonds = 0
-    for element in self.ledger :
-      fonds = fonds + element['amount']
-    if fonds > 0 :
+    #determinamos si hay fondos utilizando la funcion creada
+    #check funds
+    self.check_funds(amount)
+    if True :
       b = {"amount" : -amount}
       self.ledger.append(b)
       return True
@@ -63,9 +61,7 @@ income = Category('Money')
 print(income.deposit(1000,'Initial deposit'))
 groceries = Category ('Food')
 print (groceries.withdraw(23.24))
-print(groceries.get_balance())
-Shirts = Category ('Clothing')
-print(Shirts.transfer(23,'Clothing'))
+
 
 
 
