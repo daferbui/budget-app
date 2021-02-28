@@ -44,8 +44,17 @@ class Category :
       return False
     
   
-  def check_funds (self) :
-    return 'Not yet created'
+  def check_funds (self,amount) :
+    balance = 0
+    for value in self.ledger :
+      #chequeamos los fondos que tenemos
+      balance = balance + value['amount']
+      if balance > amount :
+        return True
+      else:
+        return False
+
+    
 
 def create_spend_chart(categories):
   return 'Not yet created'
