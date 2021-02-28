@@ -15,9 +15,8 @@ class Category :
     #la retirada de la cantidad que entra en el argumento
     fonds = 0
     for element in self.ledger :
-      value = element['amount']
-      fonds = fonds + value
-    if fonds > amount :
+      fonds = fonds + element['amount']
+    if fonds > 0 :
       b = {"amount" : -amount}
       self.ledger.append(b)
       return True
@@ -35,11 +34,11 @@ class Category :
     fonds = 0
     for value in self.ledger :
       fonds = fonds + value['amount']
-    #decidimos si realizamos la transferencia
     if fonds > 0 :
       a = {"amount" : -amount, "Transfer to" : category}
-      #Falta introducir Transfer from (entender porque)
+      b = {"amount" : amount, "Transfer from" : category}
       self.ledger(a)
+      self.legdger(b)
       return True
     else :
       return False
