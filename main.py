@@ -38,7 +38,7 @@ class Category :
       a = {"amount" : -amount, "Transfer to" : category}
       b = {"amount" : amount, "Transfer from" : category}
       self.ledger(a)
-      self.legdger(b)
+      self.ledger(b)
       return True
     else :
       return False
