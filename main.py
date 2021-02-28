@@ -15,14 +15,12 @@ class Category :
     #withdraw.
     my_dict = self.ledger[0]
     for k,v in my_dict.items() :
-      print (v)
       if type(v) == int or type(v) == float :
         deposit = v
       else :
         continue
 
     if deposit > amount :
-      print (amount)
       b = {"amount" : -amount}
       self.ledger.append(b)
       return True
