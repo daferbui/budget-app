@@ -10,12 +10,12 @@ class Category :
     self.ledger.append (a)
     return self.ledger
 
-  def withdraw (self,amount) :
+  def withdraw (self, amount, description = '') :
     #determinamos si hay fondos utilizando la funcion creada
     #check funds
     self.check_funds(amount)
     if True :
-      b = {"amount" : -amount}
+      b = {"amount" : -amount, "description" : description}
       self.ledger.append(b)
       return True
     else :
@@ -60,7 +60,7 @@ def create_spend_chart(categories):
 income = Category('Money')
 print(income.deposit(1000,'Initial deposit'))
 groceries = Category ('Food')
-print (groceries.withdraw(23.24))
+print (groceries.withdraw(23.24,'Chocolate'))
 
 
 
