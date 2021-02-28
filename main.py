@@ -11,8 +11,6 @@ class Category :
     return self.ledger
 
   def withdraw (self,amount) :
-    #sacar el numero de depósito para averiguar si es mayor que
-    #withdraw.
     my_dict = self.ledger[0]
     deposit = my_dict['amount']
     if deposit > amount :
