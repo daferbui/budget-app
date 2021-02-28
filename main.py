@@ -19,16 +19,27 @@ class Category :
       return True
     else :
       return False
-
-  
+      
   def get_balance (self) :
     balance = 0
     for element in self.ledger :
       balance = balance + element['amount']
     return balance
   
-  def transfer (self) :
-    return 'Not yet created'
+  def transfer (self,amount,category) :
+    #calculamos si tenemos fondos suficientes:
+    fonds = 0
+    for value in self.ledger :
+      fonds = fonds + value['amount']
+    #decidimos si realizamos la transferencia
+    if fonds > 0 :
+      a = {"amount" : -amount, "Transfer to" : category}
+      #Falta introducir Transfer from (entender porque)
+      self.ledger(a)
+      return True
+    else :
+      return False
+    
   
   def check_funds (self) :
     return 'Not yet created'
@@ -41,6 +52,8 @@ print(income.deposit(1000,'Initial deposit'))
 groceries = Category ('Food')
 print (groceries.withdraw(23.24))
 print(groceries.get_balance())
+Shirts = Category ('Clothing')
+print(Shirts.transfer(23,'Clothing'))
 
 
 
