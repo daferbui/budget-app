@@ -1,9 +1,9 @@
 class Category :
-  
+  ledger = list()
   def __init__ (self, category) :
     #repasar esto para que lo poniamos si abajo no hago referencia
     self.category = category
-    self.ledger = list ()
+    #self.ledger = list ()
   
   def deposit (self, amount, description = '') :
     a = {"amount" : amount, "description" : description}
@@ -11,15 +11,24 @@ class Category :
     return self.ledger
 
   def withdraw (self,amount) :
-    #no puedo self.deposit (este no es el objeto)
-    if self.deposit(amount) < self.withdraw(amount) :
+    #sacar el numero de depósito para averiguar si es mayor que
+    #withdraw.
+    my_dict = self.ledger[0]
+    for k,v in my_dict.items() :
+      print (v)
+      if type(v) == int or type(v) == float :
+        deposit = v
+      else :
+        continue
+
+    if deposit > amount :
+      print (amount)
       b = {"amount" : -amount}
       self.ledger.append(b)
-      return self.ledger
+      return True
     else :
-      return self.ledger
-    
-    return self.ledger
+      return False
+
   
   def get_balance (self) :
     return 'Not yet created'
