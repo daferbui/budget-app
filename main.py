@@ -14,12 +14,7 @@ class Category :
     #sacar el numero de depósito para averiguar si es mayor que
     #withdraw.
     my_dict = self.ledger[0]
-    for k,v in my_dict.items() :
-      if type(v) == int or type(v) == float :
-        deposit = v
-      else :
-        continue
-
+    deposit = my_dict['amount']
     if deposit > amount :
       b = {"amount" : -amount}
       self.ledger.append(b)
