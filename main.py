@@ -11,9 +11,13 @@ class Category :
     return self.ledger
 
   def withdraw (self,amount) :
-    my_dict = self.ledger[0]
-    deposit = my_dict['amount']
-    if deposit > amount :
+    #determinamos si hay fondos y introducimos en la lista
+    #la retirada de la cantidad que entra en el argumento
+    fonds = 0
+    for element in self.ledger :
+      value = element['amount']
+      fonds = fonds + value
+    if fonds > amount :
       b = {"amount" : -amount}
       self.ledger.append(b)
       return True
