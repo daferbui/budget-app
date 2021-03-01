@@ -28,9 +28,6 @@ class Category :
     return balance
   
   def transfer (self,amount,category) :
-    #Entender esta función ya que dependerá del tipo de category del 
-    #objeto, es decir no es solo introducirlo en la lista, sinó además
-    #primero averiguar a que lista de que category hay que añadirlo?
     if self.check_funds(amount) == True :
       a = {"amount" : -amount, "Transfer to" : category}
       b = {"amount" : amount, "Transfer from" : category}
