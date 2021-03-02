@@ -22,13 +22,14 @@ class Category :
       balance = balance + element['amount']
     return balance
   
-  def transfer (self,amount,category) :
+  def transfer (self, amount, category) :
       if self.check_funds(amount) == True :
-        self.withdraw(amount, "Transfer to {}".format(category))
-        self.withdraw(amount, "Transfer from {}".format(self.name))
-        print (category.name)
-        print(self.name)
-        print(self.catgory)
+        a = 'Transfer to ' + category
+        b = 'Transfer from ' + self.name
+        self.withdraw(amount, a)
+        self.deposit(amount, b)
+        print (category)
+        print (self.ledger)
         return True
       else :
         return False
@@ -49,7 +50,7 @@ def create_spend_chart(categories):
   return 'Not yet created'
 
 food = Category('food')
-print(food.deposit(1000,'ingreso'))
+food.deposit(1000,'ingreso')
 print(food.withdraw(45,'palomitas'))
 print(food.withdraw(23,'helado'))
 print(food.get_balance())
