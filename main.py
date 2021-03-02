@@ -1,18 +1,14 @@
 class Category :
-  ledger = list()
+  
   def __init__ (self, category) :
     self.category = category
-    #self.ledger = []
+    self.ledger = []
   
   def deposit (self, amount, description = '') :
     a = {"amount" : amount, "description" : description}
     self.ledger.append (a)
-    return self.ledger
-    
-
+  
   def withdraw (self, amount, description = '') :
-    #determinamos si hay fondos utilizando la funcion creada
-    #check funds
     self.check_funds(amount)
     if True :
       b = {"amount" : -amount, "description" : description}
@@ -31,8 +27,8 @@ class Category :
     if self.check_funds(amount) == True :
       a = {"amount" : -amount, "Transfer to" : category}
       b = {"amount" : amount, "Transfer from" : category}
-      self.ledger(a)
-      self.ledger(b)
+      self.ledger.append(a)
+      self.ledger.append(b)
       return True
     else :
       return False
@@ -43,20 +39,23 @@ class Category :
     for value in self.ledger :
       #chequeamos los fondos que tenemos
       balance = balance + value['amount']
-      if balance > amount :
-        return True
+      if amount > balance :
+        return False  
       else:
-        return False
-
+        return True
+        
     
 
 def create_spend_chart(categories):
   return 'Not yet created'
 
-chocolate = Category ('food')
-peras = Category ('food')
-print(peras.deposit(34.34,'Peras'))
-print(chocolate.deposit(32,'Valor'))
+food = Category('food')
+print(food.deposit(1000,'ingreso'))
+print(food.withdraw(45,'palomitas'))
+print(food.withdraw(23,'helado'))
+print(food.get_balance())
+print(food.check_funds(2000))
+print(food.transfer(50,'clothing'))
 
 
 
