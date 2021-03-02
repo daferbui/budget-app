@@ -34,7 +34,8 @@ class Category:
         else:
           return False 
         
-    def __str__ (self):
+    def __str__ (self): #esto lo hace para que la función se ejecute sin que nosotros
+    #la llamemos
         objec = (self.name.center(30, "*") + "\n")
         for entry in self.ledger:
            objec = objec + f"{entry['description'][0:23].ljust(23)}{format(entry['amount'],'.2f').rjust(7)}\n"
