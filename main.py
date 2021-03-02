@@ -24,12 +24,10 @@ class Category :
   
   def transfer (self, amount, category) :
       if self.check_funds(amount) == True :
-        a = 'Transfer to ' + category
+        a = 'Transfer to ' + category #aqui el hace category.name
         b = 'Transfer from ' + self.name
         self.withdraw(amount, a)
         self.deposit(amount, b)
-        print (category)
-        print (self.ledger)
         return True
       else :
         return False
@@ -43,6 +41,15 @@ class Category :
         return False  
       else:
         return True
+  
+  def imprimir (self,name) :
+    for i in self.ledger:
+      amount = i['amount']
+      description = i['description']
+      #alinear los resultados a la derecha en 30 espacios
+      #alinear las descriptiones a la izquierda.
+      #añadir que si en la lista está Transfer from que siga
+      #añadir el total
         
     
 
