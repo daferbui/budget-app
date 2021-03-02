@@ -24,22 +24,15 @@ class Category :
   
   def transfer (self,amount,category) :
       if self.check_funds(amount) == True :
-        self.withdraw(amount, "Transfer to {}".format(category.name))
+        self.withdraw(amount, "Transfer to {}".format(category))
         self.withdraw(amount, "Transfer from {}".format(self.name))
+        print (category.name)
+        print(self.name)
+        print(self.catgory)
         return True
-    else :
-      return False
+      else :
+        return False
 
-    def transfer(self, amount, category):
-        if self.check_funds(amount) == True:
-            self.withdraw(amount, "Transfer to {}".format(category.name))
-            category.deposit(amount, "Transfer from {}".format(self.name))
-            #print("Transfer Successful")
-            return True
-        if self.check_funds(amount) == False:
-            return False
-    
-  
   def check_funds (self,amount) :
     balance = 0
     for value in self.ledger :
