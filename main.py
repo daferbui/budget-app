@@ -20,11 +20,13 @@ class Category :
     balance = 0
     for element in self.ledger :
       balance = balance + element['amount']
+    print (self.ledger)
     return balance
   
   def transfer (self, amount, category) :
       if self.check_funds(amount) == True :
-        a = 'Transfer to ' + category #aqui el hace category.name
+        new_object = Category('category') 
+        a = 'Transfer to ' + category
         b = 'Transfer from ' + self.name
         self.withdraw(amount, a)
         self.deposit(amount, b)
@@ -35,21 +37,20 @@ class Category :
   def check_funds (self,amount) :
     balance = 0
     for value in self.ledger :
-      #chequeamos los fondos que tenemos
       balance = balance + value['amount']
       if amount > balance :
         return False  
       else:
         return True
   
-  def imprimir (self,name) :
-    for i in self.ledger:
-      amount = i['amount']
-      description = i['description']
-      #alinear los resultados a la derecha en 30 espacios
-      #alinear las descriptiones a la izquierda.
-      #añadir que si en la lista está Transfer from que siga
-      #añadir el total
+  def __str__(self) :
+    #imprimimos el título. Tenemos 30 espacios
+    #el título tiene que estar centrado.
+    a = 30 - len(self.name)
+    b = a / 2
+    star = int(b) * '*'
+    title = star + self.name + star
+    return title
         
     
 
@@ -63,6 +64,8 @@ print(food.withdraw(23,'helado'))
 print(food.get_balance())
 print(food.check_funds(500))
 print(food.transfer(50,'clothing'))
+print(food)
+
 
 
 
