@@ -3,7 +3,7 @@ class Category :
   def __init__ (self, name) :
     self.name = name
     self.ledger = []
-  
+    
   def deposit (self, amount, description = '') :
     a = {"amount" : amount, "description" : description}
     self.ledger.append (a)
@@ -20,12 +20,10 @@ class Category :
     balance = 0
     for element in self.ledger :
       balance = balance + element['amount']
-    print (self.ledger)
     return balance
   
   def transfer (self, amount, category) :
       if self.check_funds(amount) == True :
-        new_object = Category('category') 
         a = 'Transfer to ' + category
         b = 'Transfer from ' + self.name
         self.withdraw(amount, a)
@@ -44,13 +42,16 @@ class Category :
         return True
   
   def __str__(self) :
-    #imprimimos el título. Tenemos 30 espacios
-    #el título tiene que estar centrado.
+    object = ''
     a = 30 - len(self.name)
     b = a / 2
     star = int(b) * '*'
     title = star + self.name + star
-    return title
+    print (title)
+    for i in self.ledger[0:-1] :
+      object = object + f"{i['description'][0:23].ljust(23)}{format(i['amount'],'.2f').rjust(7)}" + '\n'
+    return object
+    
         
     
 
@@ -58,12 +59,12 @@ def create_spend_chart(categories):
   return 'Not yet created'
 
 food = Category('food')
-food.deposit(1000,'ingreso')
+food.deposit(1000000,'ingreso')
 print(food.withdraw(45,'palomitas'))
 print(food.withdraw(23,'helado'))
 print(food.get_balance())
 print(food.check_funds(500))
-print(food.transfer(50,'clothing'))
+print(food.transfer(50,'clothingsssssssss'))
 print(food)
 
 
