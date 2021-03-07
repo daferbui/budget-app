@@ -51,6 +51,8 @@ class Category :
       object = object + f"{i['description'][0:23].ljust(23)}{format(i['amount'],'.2f').rjust(7)}" + '\n'
       balance = balance + i['amount']
     return object + f"{'Total:'.ljust(23)}{format(balance,'.2f').rjust(7)}"
+
+#empezamos con la otra parte del ejercicio
     
         
     
