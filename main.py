@@ -42,15 +42,15 @@ class Category :
         return True
   
   def __str__(self) :
-    object = ''
+    balance = 0
     a = 30 - len(self.name)
     b = a / 2
     star = int(b) * '*'
-    title = star + self.name + star
-    print (title)
+    object = star + self.name + star + '\n'
     for i in self.ledger[0:-1] :
       object = object + f"{i['description'][0:23].ljust(23)}{format(i['amount'],'.2f').rjust(7)}" + '\n'
-    return object
+      balance = balance + i['amount']
+    return object + f"{'Total:'.ljust(23)}{format(balance,'.2f').rjust(7)}"
     
         
     
@@ -59,7 +59,7 @@ def create_spend_chart(categories):
   return 'Not yet created'
 
 food = Category('food')
-food.deposit(1000000,'ingreso')
+food.deposit(1000,'ingreso')
 print(food.withdraw(45,'palomitas'))
 print(food.withdraw(23,'helado'))
 print(food.get_balance())
