@@ -42,9 +42,16 @@ class Category :
         return True
   
   def __str__(self) :
-    
-    
-        
+    balance = 0
+    a = 30 - len(self.name)
+    b = a / 2
+    star = int(b) * '*'
+    object = star + self.name + star + '\n'
+    for i in self.ledger[0:-1] :
+      object = object + f"{i['description'][0:23].ljust(23)}{format(i['amount'],'.2f').rjust(7)}" + '\n'
+      balance = balance + i['amount']
+    return object + f"{'Total:'.ljust(23)}{format(balance,'.2f').rjust(7)}"
+
     
 
 def create_spend_chart(categories):
