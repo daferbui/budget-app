@@ -50,7 +50,7 @@ class Category :
     for i in self.ledger[0:-1] :
       object = object + f"{i['description'][0:23].ljust(23)}{format(i['amount'],'.2f').rjust(7)}" + '\n'
       balance = balance + i['amount']
-    return object + f"{'Total:'.ljust(23)}{format(balance,'.2f').rjust(7)}"
+    return object + f"{'Total: '}{format(balance,'.2f')}"
 
 #empezamos con la otra parte del ejercicio
     
