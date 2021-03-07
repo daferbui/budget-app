@@ -42,26 +42,7 @@ class Category :
         return True
   
   def __str__(self) :
-<<<<<<< HEAD
-=======
-    #imprimimos el título. Tenemos 30 espacios
-    #el título tiene que estar centrado.
->>>>>>> 86dcfbe101c504372a19387b48f35396d73f2c6a
-    object = ''
-    a = 30 - len(self.name)
-    b = a / 2
-    star = int(b) * '*'
-    title = star + self.name + star
-    print (title)
-    for i in self.ledger[0:-1] :
-<<<<<<< HEAD
-      object = object + f"{i['description'][0:23].ljust(23)}{format(i['amount'],'.2f').rjust(7)}" + '\n'
-=======
-      value = float(i['amount'])
-      key = i['description'][0:23]
-      object = object + key.ljust(23) + str(value,'.2f').rjust(7) + '\n'
->>>>>>> 86dcfbe101c504372a19387b48f35396d73f2c6a
-    return object
+    
     
         
     
@@ -70,7 +51,7 @@ def create_spend_chart(categories):
   return 'Not yet created'
 
 food = Category('food')
-food.deposit(1000000,'ingreso')
+food.deposit(1000,'ingreso')
 print(food.withdraw(45,'palomitas'))
 print(food.withdraw(23,'helado'))
 print(food.get_balance())
