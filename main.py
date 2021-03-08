@@ -53,11 +53,13 @@ class Category :
     return object + f"{'Total: '}{format(balance,'.2f')}"
 
   def cal_withdraw (self) :
+    withdraw = 0
     for element in self.ledger :
-        if element['amount'] < 0:
-          print (element['amount'])
-        else :
-          continue
+      if element['amount'] < 0:
+        withdraw += + element['amount']
+      else :
+        continue
+    return withdraw
 
 
 
@@ -81,6 +83,6 @@ business.deposit(900, "deposit")
 food.withdraw(105.55)
 entertainment.withdraw(33.40)
 business.withdraw(10.99)
-print(create_spend_chart([business, food,entertainment]))
+#print(create_spend_chart([business, food,entertainment]))
 print (business.cal_withdraw)
     
