@@ -62,8 +62,6 @@ class Category :
     return -1 * withdraw
 
 
-
-
 def create_spend_chart (categories) :
   #calculamos el gasto
   # cada objeto tendrá una lista de withdrawals.
