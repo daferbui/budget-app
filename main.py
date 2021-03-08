@@ -50,30 +50,23 @@ class Category :
     for i in self.ledger[0:-1] :
       object = object + f"{i['description'][0:23].ljust(23)}{format(i['amount'],'.2f').rjust(7)}" + '\n'
       balance = balance + i['amount']
-    return object + f"{'Total:'.ljust(23)}{format(balance,'.2f').rjust(7)}"
+    return object + f"{'Total: '}{format(balance,'.2f')}"
 
-#empezamos con la otra parte del ejercicio
-    
-        
-    
+
 
 def create_spend_chart(categories):
-  return 'Not yet created'
-
-food = Category('food')
-food.deposit(1000,'ingreso')
-print(food.withdraw(45,'palomitas'))
-print(food.withdraw(23,'helado'))
-print(food.get_balance())
-print(food.check_funds(500))
-print(food.transfer(50,'clothingsssssssss'))
-print(food)
+  return 'Hey todavia en marcha'
 
 
+food = Category ('food')
+entertainment = Category ('entertainment')
+business = Category ('business')
 
-
-
-
-
-#https://forum.freecodecamp.org/t/python-budget-app-test-get-balance-fail/408769
+food.deposit(900, "deposit")
+entertainment.deposit(900, "deposit")
+business.deposit(900, "deposit")
+food.withdraw(105.55)
+entertainment.withdraw(33.40)
+business.withdraw(10.99)
+print(create_spend_chart([business, food,entertainment]))
     
