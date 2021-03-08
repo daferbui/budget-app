@@ -52,10 +52,23 @@ class Category :
       balance = balance + i['amount']
     return object + f"{'Total: '}{format(balance,'.2f')}"
 
+  def cal_withdraw (self) :
+    for element in self.ledger :
+        if element['amount'] < 0:
+          print (element['amount'])
+        else :
+          continue
 
 
-def create_spend_chart(categories):
-  return 'Hey todavia en marcha'
+
+
+def create_spend_chart (categories) :
+  #calculamos el gasto
+  # cada objeto tendrá una lista de withdrawals.
+  for movement in categories :
+    print (movement.ledger)
+
+
 
 
 food = Category ('food')
@@ -69,4 +82,5 @@ food.withdraw(105.55)
 entertainment.withdraw(33.40)
 business.withdraw(10.99)
 print(create_spend_chart([business, food,entertainment]))
+print (business.cal_withdraw)
     
