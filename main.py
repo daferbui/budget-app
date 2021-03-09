@@ -63,14 +63,12 @@ class Category :
 
 
 def create_spend_chart (categories) :
-  #calculamos el gasto
-  # cada objeto tendrá una lista de withdrawals.
   lista = []
   total = 0
   for element in categories :
-    print (element.ledger)
-    #por algun motivo esto no funciona
-    result = element.cal_withdraw
+    #print (element.ledger)
+    result = element.cal_withdraw () #llamamos a una funcion ()
+    #print (result)
     lista.append(result)
   print (lista)
 
@@ -92,6 +90,6 @@ business.deposit(900, "deposit")
 food.withdraw(105.55)
 entertainment.withdraw(33.40)
 business.withdraw(10.99)
-print(create_spend_chart([business, food,entertainment]))
+print(create_spend_chart([business, food, entertainment]))
 
     
