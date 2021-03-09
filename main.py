@@ -63,18 +63,32 @@ class Category :
 
 
 def create_spend_chart (categories) :
-  lista = []
+  lista1 = []
+  lista2 = []
   total = 0
   for element in categories :
     #print (element.ledger)
     result = element.cal_withdraw () #llamamos a una funcion ()
     #print (result)
-    lista.append(result)
-  print (lista)
+    lista1.append(result)
+  print (lista1)
 
-  for i in lista :
+  # calculamos el porcentaje gastado
+  for i in lista1 :
     total = total + i
   print (total)
+
+  #averiguar como hacer el loop para que solo pase una vez
+  #por elemento.
+  #mirar como se hacen los loops dobles en una linea
+  for element in categories :
+    for i in lista1 :
+      percentage = 100 * float(i) / total
+      tupla = (element.name, percentage)
+      print (tupla)
+      lista2.append(tupla)
+  #print (lista2) 
+  
 
 
 
