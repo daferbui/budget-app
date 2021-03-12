@@ -162,7 +162,8 @@ def create_spend_chart (categories) :
       h = ' ' + 'o'
 
   #el error está aquí
-  result = result + '\n' + a + '\n' + b + '\n'+ c + '\n' + d + '\n' + e + '\n' + f + '\n' + g + '\n' + h
+  return f" {result}'\n'{a}"
+  result = result + '\n' + a + '\n' + b + '\n'+ c + '\n' + d + '\n' + e + '\n' + f + '\n' + g + '\n' + h + '\n'
 
   return result
 
