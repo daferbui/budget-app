@@ -122,16 +122,18 @@ def create_spend_chart (categories) :
 
   #seguir con esto que es dificil
   result = ''.ljust(5)
-  for lists in lista3 :
-    pos = 0
-    for letter in lists :
-      if lists.index(letter) == pos :
-        result = result + letter[pos] + '  '
-      else :
-        continue
-    
-
-
+  pos = 0
+  for i in range (len(lista3)) :
+    try :
+      for lists in lista3 :
+        for letter in lists :
+          result = result + letter[pos] + '  '
+          #mirar si el break es el que falla y poner otra funcion
+          break
+      pos = pos + 1
+    except :
+      continue
+  
   return frase + result
 
 food = Category ('food')
