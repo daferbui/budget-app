@@ -67,7 +67,7 @@ def create_spend_chart (categories) :
   lista2 = []
   total = 0
   count = 0
-  frase = 'Percentage spent by category'
+  frase = 'Percentage spent by category \n'
   for element in categories :
     result = element.cal_withdraw () #llamamos a una funcion ()
     lista1.append(result)
@@ -166,7 +166,7 @@ def create_spend_chart (categories) :
         sum = sum + 1
       k = k + ' ' + 'o'
 
-  final = frase + f"{a}{b}{c}{d}{e}"
+  final = frase + f"{a}'\n'{b}{c}{d}{e}"
   return final
 
 
