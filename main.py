@@ -65,6 +65,7 @@ class Category :
 def create_spend_chart (categories) :
   lista1 = []
   lista2 = []
+  my_dict = {}
   total = 0
   count = 0
   frase = 'Percentage spent by category \n'
@@ -79,14 +80,10 @@ def create_spend_chart (categories) :
   print (total)
   #corregir esto
   for element in categories :
-    while count < 1 :
-      for i in lista1 :
+    for i in lista1 :
         percentage = 100 * float(i) / total
-        tupla = (percentage,element.name)
-        lista2.append(tupla)
-        count = count + 1
-  lista2.sort(reverse=True)
-  print (lista2)
+        my_dict[element.name] = i
+  print (my_dict)
 
   sum = 0
   for v,k in lista2 :
@@ -166,7 +163,7 @@ def create_spend_chart (categories) :
         sum = sum + 1
       k = k + ' ' + 'o'
 
-  final = frase + f"{a}'\n'{b}{c}{d}{e}"
+  final = frase + f"{a}{b}{c}{d}{e}"
   return final
 
 
