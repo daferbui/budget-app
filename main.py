@@ -85,6 +85,7 @@ def create_spend_chart (categories) :
         my_dict[element.name] = i
   print (my_dict)
 
+
   sum = 0
   for v,k in lista2 :
     if v == 100 :
