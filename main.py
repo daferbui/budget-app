@@ -67,18 +67,14 @@ def create_spend_chart (categories) :
   lista2 = []
   total = 0
   count = 0
-  result = 'Percentage spent by category'
+  final = 'Percentage spent by category'
   for element in categories :
-    #print (element.ledger)
     result = element.cal_withdraw () #llamamos a una funcion ()
-    #print (result)
     lista1.append(result)
-  print (lista1)
 
   # calculamos el porcentaje gastado
   for i in lista1 :
     total = total + i
-  print (total)
 
   for element in categories :
     while count < 1 :
@@ -88,7 +84,6 @@ def create_spend_chart (categories) :
         lista2.append(tupla)
         lista2.sort(reverse=True)
         count = count + 1
-  print (lista2)
 
   sum = 0
   for v,k in lista2 :
@@ -131,7 +126,7 @@ def create_spend_chart (categories) :
       while sum < 1 :
         f = '50|' + ' ' + 'o'
         sum = sum + 1
-      f = f+ ' ' + 'o'
+      f = f + ' ' + 'o'
   sum = 0
   for v,k in lista2 :
     if v >= 40 :
@@ -160,8 +155,15 @@ def create_spend_chart (categories) :
         j = '10|' + ' ' + 'o'
         sum = sum + 1
       j = j +  ' ' + 'o'
+  sum = 0
+  for v,k in lista2 :
+    if v >= 0 :
+      while sum < 1 :
+        k = '0|' + ' ' + 'o'
+        sum = sum + 1
+      k = k +  ' ' + 'o'
 
-  return f"{result}'\n'{a}'\n'{b}'\n'{c}'\n'{d}'\n'{e}'\n'{f}'\n'{g}'\n'{h}'\n'{i}'\n'{j}"
+  return final + '\n' + f"{a.rjust(4)}'\n'{b.rjust(4)}'\n'{c.rjust(4)}'\n'{d.rjust(4)}'\n'{e.rjust(4)}'\n'{f.rjust(4)}'\n'{g.rjust(4)}'\n'{h.rjust(4)}'\n'{i.rjust(4)}'\n'{j.rjust(4)}'\n'{k.rjust(4)}"
 
 
 
