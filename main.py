@@ -90,85 +90,21 @@ def create_spend_chart (categories) :
   lista.sort(reverse = True)
   print (lista)
 
-  sum = 0
-  for v,k in lista2 :
-    if v == 100 :
-      while sum < 1 :
-        a = '100|' + ' ' + 'o'
-        sum = sum + 1
-      a = a + ' ' + 'o'
-  sum = 0
-  for v,k in lista2 :
-    if v >= 90 :
-      while sum < 1 :
-        b = '90|'.ljust(4) + ' ' + 'o'
-        sum = sum + 1
-      b = b + ' ' + 'o'
-  sum = 0
-  for v,k in lista2 :
-    if v >= 80 :
-      while sum < 1 :
-        c = '80|'.ljust(4) + ' ' + 'o'
-        sum = sum + 1
-      c = c + ' ' + 'o'
-  sum = 0
-  for v,k in lista2 :
-    if v >= 70 :
-      while sum < 1 :
-        d = '70|'.ljust(4) + ' ' + 'o'
-        sum = sum + 1
-      d = d + ' ' + 'o'
-  sum = 0
-  for v,k in lista2 :
-    if v >= 60 :
-      while sum < 1 :
-        e = '60|'.ljust(4) + ' ' + 'o'
-        sum = sum + 1
-      e = e + ' ' + 'o'
-  sum = 0
-  for v,k in lista2 :
-    if v >= 50 :
-      while sum < 1 :
-        f = '50|'.ljust(4) + ' ' + 'o'
-        sum = sum + 1
-      f = f + ' ' + 'o'
-  sum = 0
-  for v,k in lista2 :
-    if v >= 40 :
-      while sum < 1 :
-        g = '40|'.ljust(4) + ' ' + 'o'
-        sum = sum + 1
-      g = g + ' ' + 'o'
-  sum = 0
-  for v,k in lista2 :
-    if v >= 30 :
-      while sum < 1 :
-        h = '30|'.ljust(4) + ' ' + 'o'
-        sum = sum + 1
-      h = h + ' ' + 'o'
-  sum = 0
-  for v,k in lista2 :
-    if v >= 20 :
-      while sum < 1 :
-        i = '20|'.ljust(4) + ' ' + 'o'
-        sum = sum + 1
-      i = i + ' ' + 'o'
-  sum = 0
-  for v,k in lista2 :
-    if v >= 10 :
-      while sum < 1 :
-        j = '10|'.ljust(4) + ' ' + 'o'
-        sum = sum + 1
-      j = j + ' ' + 'o'
-    sum = 0
-  for v,k in lista2 :
-    if v >= 0 :
-      while sum < 1 :
-        k = '0|'.ljust(4) + ' ' + 'o'
-        sum = sum + 1
-      k = k + ' ' + 'o'
+  
+  x = 100
+  for final in range (11) :
+    for v,k in lista :
+      sum = 0
+      if v >= x :
+        while sum < 1 :
+          a = str(x) + '|' + ' ' + 'o'
+          sum = sum + 1
+        a = a + ' ' + 'o'
+      else :
+        a = str(x) + '|' + '\n'
+    x = x - 10
 
-  final = frase + f"{a}{b}{c}{d}{e}"
+  final = frase + a
   return final
 
 
