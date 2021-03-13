@@ -102,6 +102,17 @@ def create_spend_chart (categories) :
     frase = frase + a + '\n'
     x = x - 10
 
+  #corregir esto
+  for i in lista :
+    first = '    '
+    if lista.index(i) == 0 :
+      guion = first
+    elif lista.index(i) > 0 and lista.index(i) < len(lista) :
+      guion = guion + '---'
+    else :
+      guion = guion + '----'
+    frase = frase + guion
+
   return frase
 
 
