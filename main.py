@@ -63,109 +63,57 @@ class Category :
 
 
 def create_spend_chart (categories) :
-  lista1 = []
-  lista2 = []
+  my_dict1 = {}
+  my_dict2 = {}
   total = 0
-  count = 0
-  final = 'Percentage spent by category'
+  lista = []
+  frase = 'Percentage spent by category \n'
+
   for element in categories :
     result = element.cal_withdraw () #llamamos a una funcion ()
-    lista1.append(result)
+    my_dict1[element.name] = result
+  print (my_dict1)
 
-  # calculamos el porcentaje gastado
-  for i in lista1 :
-    total = total + i
+  # calculamos el total
+  for k,v in my_dict1.items() :
+    total = total + v
+  
+  #introducimos el porcentaje en el diccionario
+  for k,v in my_dict1.items() :
+    my_dict2[k] = v / total * 100
+  print (my_dict2)
 
-  for element in categories :
-    while count < 1 :
-      for i in lista1 :
-        percentage = 100 * float(i) / total
-        tupla = (percentage,element.name)
-        lista2.append(tupla)
-        lista2.sort(reverse=True)
-        count = count + 1
+  #ordenamos de mayor a menor el diccionario
+  for k,v in my_dict2.items() :
+    tupla = (v,k)
+    lista.append(tupla)
+  lista.sort(reverse = True)
+  print (lista)
 
-  sum = 0
-  for v,k in lista2 :
-    if v == 100 :
-      while sum < 1 :
-        a = '100|' + ' ' + 'o'
-        sum = sum + 1
-      a = a + ' ' + 'o'
-  sum = 0
-  for v,k in lista2 :
-    if v >= 90 :
-      while sum < 1 :
-        b = '90|' + ' ' + 'o'
-        sum = sum + 1
-      b = b + ' ' + 'o'
-  sum = 0
-  for v,k in lista2 :
-    if v >= 80 :
-      while sum < 1 :
-        c = '80|' + ' ' + 'o'
-        sum = sum + 1
-      c = c + ' ' + 'o'
-  sum = 0
-  for v,k in lista2 :
-    if v >= 70 :
-      while sum < 1 :
-        d = '70|' + ' ' + 'o'
-        sum = sum + 1
-      d = d + ' ' + 'o'
-  sum = 0
-  for v,k in lista2 :
-    if v >= 60 :
-      while sum < 1 :
-        e = '60|' + ' ' + 'o'
-        sum = sum + 1
-      e = e + ' ' + 'o'
-  sum = 0
-  for v,k in lista2 :
-    if v >= 50 :
-      while sum < 1 :
-        f = '50|' + ' ' + 'o'
-        sum = sum + 1
-      f = f + ' ' + 'o'
-  sum = 0
-  for v,k in lista2 :
-    if v >= 40 :
-      while sum < 1 :
-        g = '40|' + ' ' + 'o'
-        sum = sum + 1
-      g = g + ' ' + 'o'
-  sum = 0
-  for v,k in lista2 :
-    if v >= 30 :
-      while sum < 1 :
-        h = '30|' + ' ' + 'o'
-        sum = sum + 1
-      h = h + ' ' + 'o'
-  sum = 0
-  for v,k in lista2 :
-    if v >= 20 :
-      while sum < 1 :
-        i = '20|' + ' ' + 'o'
-        sum = sum + 1
-      i = i + ' ' + 'o'
-  sum = 0
-  for v,k in lista2 :
-    if v >= 10 :
-      while sum < 1 :
-        j = '10|' + ' ' + 'o'
-        sum = sum + 1
-      j = j +  ' ' + 'o'
-  sum = 0
-  for v,k in lista2 :
-    if v >= 0 :
-      while sum < 1 :
-        k = '0|' + ' ' + 'o'
-        sum = sum + 1
-      k = k +  ' ' + 'o'
+  #falta solucionar esto
+  x = 100
+  for number in range (11) :
+    a = f"{x}".rjust(3) + '| '
+    for v,k in lista :
+      if v >= x :
+        a = a + 'o  '
+      else :
+        a = a + '  '
+    frase = frase + a + '\n'
+    x = x - 10
 
-  return final + '\n' + f"{a.rjust(4)}'\n'{b.rjust(4)}'\n'{c.rjust(4)}'\n'{d.rjust(4)}'\n'{e.rjust(4)}'\n'{f.rjust(4)}'\n'{g.rjust(4)}'\n'{h.rjust(4)}'\n'{i.rjust(4)}'\n'{j.rjust(4)}'\n'{k.rjust(4)}"
+  #corregir esto
+  for i in lista :
+    first = '    '
+    if lista.index(i) == 0 :
+      guion = first
+    elif lista.index(i) > 0 and lista.index(i) < len(lista) :
+      guion = guion + '---'
+    else :
+      guion = guion + '----'
+    frase = frase + guion
 
-
+  return frase
 
 food = Category ('food')
 entertainment = Category ('entertainment')
