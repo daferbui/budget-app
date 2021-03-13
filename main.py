@@ -67,6 +67,8 @@ def create_spend_chart (categories) :
   my_dict2 = {}
   total = 0
   lista = []
+  lista2 = []
+  lista3 = []
   frase = 'Percentage spent by category \n'
 
   for element in categories :
@@ -104,16 +106,23 @@ def create_spend_chart (categories) :
 
   #corregir esto
   for i in lista :
-    first = '    '
+    guion = ''
     if lista.index(i) == 0 :
-      guion = first
-    elif lista.index(i) > 0 and lista.index(i) < len(lista) :
+      guion = guion.rjust(4)
+    elif lista.index(i) > 0 and lista.index(i) < len(lista) - 1 :
       guion = guion + '---'
-    else :
-      guion = guion + '----'
+    elif lista.index(i) == len(lista) - 1 :
+      guion = guion + '------'
     frase = frase + guion
+  
+  for v,k in lista :
+    lista2.append(k)
+  for word in lista2 :
+    lista3.append(list(word))
+  print (lista3)
 
-  return frase
+
+  #return frase
 
 
 food = Category ('food')
