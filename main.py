@@ -77,15 +77,15 @@ def create_spend_chart (categories) :
   for i in lista1 :
     total = total + i
   print (total)
-
+  #corregir esto
   for element in categories :
     while count < 1 :
       for i in lista1 :
         percentage = 100 * float(i) / total
         tupla = (percentage,element.name)
         lista2.append(tupla)
-        lista2.sort(reverse=True)
         count = count + 1
+  lista2.sort(reverse=True)
   print (lista2)
 
   sum = 0
@@ -166,7 +166,7 @@ def create_spend_chart (categories) :
         sum = sum + 1
       k = k + ' ' + 'o'
 
-  final = frase + '\n' + a
+  final = frase + f"{a}{b}{c}{d}{e}"
   return final
 
 
