@@ -98,7 +98,7 @@ def create_spend_chart (categories) :
       if v >= x :
         a = a + 'o  '
       else :
-        a = '  '
+        a = a + '  '
     frase = frase + a + '\n'
     x = x - 10
 
