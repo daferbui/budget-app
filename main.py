@@ -92,80 +92,77 @@ def create_spend_chart (categories) :
 
   sum = 0
   for v,k in lista2 :
-    if v <= 100 :
+    if v == 100 :
       while sum < 1 :
         a = '100|' + ' ' + 'o'
         sum = sum + 1
-      a = ' ' + 'o'
+      a = a + ' ' + 'o'
   sum = 0
   for v,k in lista2 :
-    if v <= 90 :
+    if v >= 90 :
       while sum < 1 :
         b = '90|' + ' ' + 'o'
         sum = sum + 1
-      b = ' ' + 'o'
+      b = b + ' ' + 'o'
   sum = 0
   for v,k in lista2 :
-    if v <= 80 :
+    if v >= 80 :
       while sum < 1 :
-        b = '80|' + ' ' + 'o'
+        c = '80|' + ' ' + 'o'
         sum = sum + 1
-      b = ' ' + 'o'
+      c = c + ' ' + 'o'
   sum = 0
   for v,k in lista2 :
-    if v <= 70 :
+    if v >= 70 :
       while sum < 1 :
-        c = '70|' + ' ' + 'o'
+        d = '70|' + ' ' + 'o'
         sum = sum + 1
-      c = ' ' + 'o'
+      d = d + ' ' + 'o'
   sum = 0
   for v,k in lista2 :
-    if v <= 60 :
+    if v >= 60 :
       while sum < 1 :
-        d = '60|' + ' ' + 'o'
+        e = '60|' + ' ' + 'o'
         sum = sum + 1
-      d = ' ' + 'o'
+      e = e + ' ' + 'o'
   sum = 0
   for v,k in lista2 :
-    if v <= 50 :
+    if v >= 50 :
       while sum < 1 :
-        e = '50|' + ' ' + 'o'
+        f = '50|' + ' ' + 'o'
         sum = sum + 1
-      e = ' ' + 'o'
+      f = f+ ' ' + 'o'
   sum = 0
   for v,k in lista2 :
-    if v <= 40 :
+    if v >= 40 :
       while sum < 1 :
-        f = '40|' + ' ' + 'o'
+        g = '40|' + ' ' + 'o'
         sum = sum + 1
-      f = ' ' + 'o'
+      g = g + ' ' + 'o'
   sum = 0
   for v,k in lista2 :
-    if v <= 30 :
+    if v >= 30 :
       while sum < 1 :
-        f = '30|' + ' ' + 'o'
+        h = '30|' + ' ' + 'o'
         sum = sum + 1
-      f = ' ' + 'o'
+      h = h + ' ' + 'o'
   sum = 0
   for v,k in lista2 :
-    if v <= 20 :
+    if v >= 20 :
       while sum < 1 :
-        g = '20|' + ' ' + 'o'
+        i = '20|' + ' ' + 'o'
         sum = sum + 1
-      g = ' ' + 'o'
+      i = i + ' ' + 'o'
   sum = 0
   for v,k in lista2 :
-    if v <= 10 :
+    if v >= 10 :
       while sum < 1 :
-        h = '10|' + ' ' + 'o'
+        j = '10|' + ' ' + 'o'
         sum = sum + 1
-      h = ' ' + 'o'
+      j = j +  ' ' + 'o'
 
-  #el error está aquí
-  return f" {result}'\n'{a}"
-  result = result + '\n' + a + '\n' + b + '\n'+ c + '\n' + d + '\n' + e + '\n' + f + '\n' + g + '\n' + h + '\n'
+  return f"{result}'\n'{a}'\n'{b}'\n'{c}'\n'{d}'\n'{e}'\n'{f}'\n'{g}'\n'{h}'\n'{i}'\n'{j}"
 
-  return result
 
 
 food = Category ('food')
