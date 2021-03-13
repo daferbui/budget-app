@@ -63,28 +63,32 @@ class Category :
 
 
 def create_spend_chart (categories) :
-  lista1 = []
-  lista2 = []
-  my_dict = {}
+  my_dict1 = {}
+  my_dict2 = {}
   total = 0
-  count = 0
+  lista = []
   frase = 'Percentage spent by category \n'
+
   for element in categories :
     result = element.cal_withdraw () #llamamos a una funcion ()
-    lista1.append(result)
-  print (lista1)
+    my_dict1[element.name] = result
+  print (my_dict1)
 
-  # calculamos el porcentaje gastado
-  for i in lista1 :
-    total = total + i
-  print (total)
-  #corregir esto
-  for element in categories :
-    for i in lista1 :
-        percentage = 100 * float(i) / total
-        my_dict[element.name] = i
-  print (my_dict)
+  # calculamos el total
+  for k,v in my_dict1.items() :
+    total = total + v
+  
+  #introducimos el porcentaje en el diccionario
+  for k,v in my_dict1.items() :
+    my_dict2[k] = v / total * 100
+  print (my_dict2)
 
+  #ordenamos de mayor a menor el diccionario
+  for k,v in my_dict2.items() :
+    tupla = (v,k)
+    lista.append(tupla)
+  lista.sort(reverse = True)
+  print (lista)
 
   sum = 0
   for v,k in lista2 :
