@@ -112,7 +112,7 @@ def create_spend_chart (categories) :
     elif lista.index(i) > 0 and lista.index(i) < len(lista) - 1 :
       guion = guion + '---'
     elif lista.index(i) == len(lista) - 1 :
-      guion = guion + '------'
+      guion = guion + '------' + '\n'
     frase = frase + guion
   
   for v,k in lista :
@@ -121,8 +121,19 @@ def create_spend_chart (categories) :
     lista3.append(list(word))
   print (lista3)
 
+  #seguir con esto que es dificil
+  result = ''.ljust(5)
+  for lists in lista3 :
+    pos = 0
+    for letter in lists :
+      if lists.index(letter) == pos :
+        result = result + letter[pos] + '  '
+      else :
+        continue
+    
 
-  #return frase
+
+  return frase + result
 
 
 food = Category ('food')
