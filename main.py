@@ -90,22 +90,19 @@ def create_spend_chart (categories) :
   lista.sort(reverse = True)
   print (lista)
 
-  
+  #falta solucionar esto
   x = 100
-  for final in range (11) :
+  for number in range (11) :
+    a = f"{x}".rjust(3) + '| '
     for v,k in lista :
-      sum = 0
       if v >= x :
-        while sum < 1 :
-          a = str(x) + '|' + ' ' + 'o'
-          sum = sum + 1
-        a = a + ' ' + 'o'
+        a = a + 'o  '
       else :
-        a = str(x) + '|' + '\n'
+        a = '  '
+    frase = frase + a + '\n'
     x = x - 10
 
-  final = frase + a
-  return final
+  return frase
 
 
 food = Category ('food')
