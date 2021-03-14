@@ -124,16 +124,22 @@ def create_spend_chart (categories) :
   #seguir con esto que es dificil
   result = ''.ljust(5)
   pos = 0
-  for i in range (len(lista3)) :
-    try :
-      for lists in lista3 :
+  for i in range (50) :
+    for lists in lista3 :
+      try :
         for letter in lists :
-          result = result + letter[pos] + '  '
-          #mirar si el break es el que falla y poner otra funcion
-          break
-      pos = pos + 1
-    except :
-      continue
+          a = 1
+          if lists.index(letter) == pos :
+            if a < len (lists) :
+              result = result + letter[pos] + '  '
+              a = a + 1
+            else :
+              result = result + letter[pos] + '\n'
+          else :
+            continue
+      except :
+        continue
+    pos = pos + 1
   
   return frase + result
 
