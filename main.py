@@ -114,27 +114,36 @@ def create_spend_chart (categories) :
       guion = guion + '------' + '\n'
     frase = frase + guion
   
+  #encontramos el nombre más largo
+  name_len = 0
   for v,k in lista :
-    lista2.append(k)
-  for word in lista2 :
-    lista3.append(list(word))
-  print (lista3)
-
-  #seguir con esto que es dificil
-  result = ''.ljust(5)
-  pos = 0
-  for i in range (len(lista3)) :
-    try :
-      for lists in lista3 :
-        for letter in lists :
-          result = result + letter[pos] + '  '
-          #mirar si el break es el que falla y poner otra funcion
-          break
-      pos = pos + 1
-    except :
+    if len(k) > name_len :
+      name_len = len (k)
+    else :
       continue
+
   
-  return frase + result
+  
+  y = 0
+  while y <= name_len :
+    letter = '     '
+    for v,k in lista :
+      try :
+        letter = letter + k[y] + '  '
+      except :
+        letter = letter + '   '
+     
+    
+    if y <= name_len -1 :
+      frase = frase + letter + '\n'
+    else :
+      frase = frase + letter.strip(' ')
+
+    y = y + 1
+
+  frase = frase.rstrip('\n')
+    
+  return frase
 
 food = Category ('food')
 entertainment = Category ('entertainment')
