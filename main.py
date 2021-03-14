@@ -27,7 +27,7 @@ class Category :
         a = 'Transfer to ' + category
         b = 'Transfer from ' + self.name
         self.withdraw(amount, a)
-        self.deposit(amount, b)
+        category.deposit(amount, b)
         return True
       else :
         return False
